@@ -69,6 +69,9 @@ const conditionalResult = classNames(
   'base-class',
   { 'enabled': isEnabled, 'hidden': isHidden }
 );  // Output: "base-class enabled"
+
+// With array
+const arrayResult = classNames(['base-class', 'base-class2']]);  // Output: "base base2"
 ```
 
 ## Contributing
