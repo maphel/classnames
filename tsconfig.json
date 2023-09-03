@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "composite": true,
+    "composite": false,
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "declaration": true,

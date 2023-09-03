@@ -2,8 +2,8 @@
   "name": "@maphel/classnames",
   "version": "0.0.1",
   "description": "A utility for generating class names",
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "access": "public",
   "scripts": {
     "test": "jest --coverage",
