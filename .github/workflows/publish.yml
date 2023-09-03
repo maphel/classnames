@@ -28,6 +28,19 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Extract version from latest Git tag
+        run: echo "Updating package.json version to latest tag"
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Use version and add to package.json
+        run: |
+          TAG_NAME=$(git describe --tags $(git rev-list --tags --max-count=1))
+          VERSION=${TAG_NAME#*v.}
+          jq ".version = \"$VERSION\"" package.json > package.temp.json
+          mv package.temp.json package.json
+
       - name: Build
         run: yarn build
 
