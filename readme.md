@@ -2,8 +2,8 @@
 # @maphel/classnames Package
 
 [![NPM version](https://img.shields.io/npm/v/@maphel/classnames.svg)](https://www.npmjs.com/package/@maphel/classnames)
-[![Build Status](https://img.shields.io/travis/maphel/classnames/master.svg)](https://travis-ci.com/github/maphel/classnames)
-[![Coverage Status](https://coveralls.io/repos/github/maphel/classnames/badge.svg?branch=master)](https://coveralls.io/github/maphel/classnames?branch=master)
+[![Build Status](https://github.com/maphel/classnames/actions/workflows/build.yml/badge.svg)](https://github.com/maphel/classnames/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/maphel/classnames/badge.svg?branch=main)](https://coveralls.io/github/maphel/classnames?branch=main)
 [![Dependency Status](https://david-dm.org/maphel/classnames.svg)](https://david-dm.org/maphel/classnames)
 
 
