@@ -58,12 +58,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v2
+      - name: Checkout main
+        uses: actions/checkout@v3
         with:
-          ref: master
+          ref: main
 
-      - name: Update package.json on master
+      - name: Update package.json on main
         run: |
           VERSION=$(jq -r '.version' package.json)
           echo "Updating package.json version on master to $VERSION"
@@ -75,5 +75,5 @@ jobs:
           git config --local user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --local user.name "maphel"
           git add package.json
-          git commit -m "Update package.json version to $VERSION on master"
-          git push origin master
+          git commit -m "Update package.json version to $VERSION on main"
+          git push origin main
