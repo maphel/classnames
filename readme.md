@@ -33,7 +33,7 @@ npm install class-names-package
 
 Import the utility function into your TypeScript or JavaScript file:
 ```typescript
-import { classNames } from 'class-names-package';
+import { classNames } from '@maphel/classnames';
 ```
 
 ## API
