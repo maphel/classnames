@@ -1,0 +1,24 @@
+{
+  "name": "@maphel/classnames",
+  "version": "1.0.0",
+  "description": "A utility for generating class names",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maphel/classnames.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maphel/classnames/issues"
+  },
+  "homepage": "https://github.com/maphel/classnames#readme"
+}
