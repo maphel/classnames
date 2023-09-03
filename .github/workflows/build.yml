@@ -11,13 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 18
+          
+      - name: Install Yarn 3 (Berry)
+        run: npm install -g yarn@berry
+
+      - name: Set up Yarn 3
+        run: yarn set version berry
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -26,4 +29,4 @@ jobs:
         run: yarn build
 
       - name: Run tests with coverage
-        run: yarn test --coverage
+        run: yarn test
