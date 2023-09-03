@@ -1,1 +1,1 @@
-export {classNames, ClassValue, ClassMap} from "./classnames"
+export {classNames, ClassValue, ClassMap, ClassValueArray} from "./classnames"

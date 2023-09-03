@@ -8,7 +8,7 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES2021",
+    "target": "es5",
     "outDir": "./dist",
     "skipLibCheck": false,
     "strictNullChecks": false,

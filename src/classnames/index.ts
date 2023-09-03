@@ -1,49 +1,64 @@
-export type ClassValue = string | undefined | null | boolean;
-export type ClassMap = Record<string, boolean | string | number>;
+export type ClassValue = string | boolean | ClassValueArray | ClassMap;
+export type ClassValueArray = ClassValue[];
+export type ClassMap = { [key: string]: string | boolean };
 
-export function isString(value: unknown): value is string {
-  return typeof value === "string";
+export function classNames(...args: ClassValue[]): string {
+  const classes: string[] = [];
+
+  for (let i = 0; i < args.length; i++) {
+    processArg(args[i], classes);
+  }
+
+  let finalClasses = '';
+  let isFirstClass = true;
+
+  for (let i = 0; i < classes.length; i++) {
+    // Ignore boolean 'true'
+    if (classes[i] === 'true') {
+      continue;
+    }
+
+    // Trim each class
+    const trimmedClass = classes[i].trim();
+
+    if (trimmedClass) {
+      if (!isFirstClass) {
+        finalClasses += ' ';
+      } else {
+        isFirstClass = false;
+      }
+      finalClasses += trimmedClass;
+    }
+  }
+
+  return finalClasses;
 }
 
-export function isBooleanString(value: unknown): boolean {
-  return ["true", "1"].includes(value as string);
-}
+function processArg(arg: ClassValue, classes: string[]): void {
+  if (arg === undefined || arg === null || arg === false) {
+    return;
+  }
 
-export function classNames(...args: (ClassValue | ClassMap | string | string[])[]): string {
-  function processArg (arg: ClassValue | ClassMap | string): string[] {
-    if (arg === undefined || arg === null || typeof arg === "boolean") {
-      return [];
+  if (Array.isArray(arg)) {
+    for (let i = 0; i < arg.length; i++) {
+      processArg(arg[i], classes);
     }
+    return;
+  }
 
-    if (Array.isArray(arg)) {
-      return arg.filter(isString);
+  if (typeof arg === 'object') {
+    for (const key in arg) {
+      if (Object.prototype.hasOwnProperty.call(arg, key)) {
+        const value = arg[key];
+        if (value === true || value === 'true' || value === '1') {
+          classes.push(key);
+        }
+      }
     }
+    return;
+  }
 
-    if (typeof arg === "object") {
-      return Object.keys(arg)
-        .map((key) => {
-          const value = arg[key];
-          if (value === true) {
-            return key;
-          }
-          if (isString(value) && isBooleanString(value)) {
-            return key;
-          }
-          return null;
-        })
-        .filter(Boolean)
-        .filter(isString);
-    }
-
-    if (isString(arg)) {
-      return [arg];
-    }
-
-    return [];
-  };
-
-  return args
-    .flatMap(processArg)
-    .filter(Boolean)
-    .join(" ");
+  if (typeof arg === 'string' || typeof arg === 'boolean') {
+    classes.push(arg.toString());
+  }
 }
