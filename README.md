@@ -66,7 +66,7 @@ import { classNames } from '@maphel/classnames';
 const basicResult = classNames('class1', 'class2');
 console.log(basicResult);  // Output: "class1 class2"
 
-// Conditional Classes
+// Conditional Usage
 const conditionalResult = classNames(
         'base',
         { 'active': true, 'disabled': false }
