@@ -1,10 +1,10 @@
 
 # @maphel/classnames Package
-
+[![Classnames Package](https://img.shields.io/badge/@maphel-classnames-8A2BE2)](https://github.com/maphel/classnames)
 [![NPM version](https://img.shields.io/npm/v/@maphel/classnames.svg)](https://www.npmjs.com/package/@maphel/classnames)
-[![Build Status](https://github.com/maphel/classnames/actions/workflows/build.yml/badge.svg)](https://github.com/maphel/classnames/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/maphel/classnames/badge.svg?branch=main)](https://coveralls.io/github/maphel/classnames?branch=main)
-[![Dependency Status](https://david-dm.org/maphel/classnames.svg)](https://david-dm.org/maphel/classnames)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/maphel/classnames/build.yml)](https://github.com/maphel/classnames/actions/workflows/build.yml)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/maphel/classnames)](https://coveralls.io/github/maphel/classnames?branch=main)
+[![Dependabot Status](https://img.shields.io/github/license/maphel/classnames)]()
 
 
 > A TypeScript utility for conditionally concatenating class names.
