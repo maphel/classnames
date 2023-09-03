@@ -78,7 +78,7 @@ const arrayResult = classNames(['array-class1', 'array-class2']);
 console.log(arrayResult);  // Output: "array-class1 array-class2"
 
 // Exessive Usage
-const exessiveResult = classNames('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ')
+const exessiveResult = classNames('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ');
 console.log(exessiveResult);  // Output: "a b c d e f g h i j k l m"
 ```
 ---
