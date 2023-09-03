@@ -40,6 +40,8 @@ jobs:
           VERSION=${TAG_NAME#*v.}
           jq ".version = \"$VERSION\"" package.json > package.temp.json
           mv package.temp.json package.json
+        env:
+          VERSION: $VERSION
 
       - name: Build
         run: yarn build
@@ -52,10 +54,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git config --global user.name "maphel"
+
       - name: Commit updated package.json
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add package.json
           git commit -m "Update package.json version to ${{ env.VERSION }}"
           git push origin HEAD:${{ github.ref }}
