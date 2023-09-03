@@ -1,82 +1,84 @@
+# `@maphel/classnames` Package
+![Classnames Package](https://img.shields.io/badge/@maphel-classnames-8A2BE2)
+![NPM version](https://img.shields.io/npm/v/@maphel/classnames.svg)
+![Build Status](https://img.shields.io/github/actions/workflow/status/maphel/classnames/build.yml)
+![Coverage Status](https://img.shields.io/coverallsCoverage/github/maphel/classnames)
+![License](https://img.shields.io/github/license/maphel/classnames)
 
-# @maphel/classnames Package
-[![Classnames Package](https://img.shields.io/badge/@maphel-classnames-8A2BE2)](https://github.com/maphel/classnames)
-[![NPM version](https://img.shields.io/npm/v/@maphel/classnames.svg)](https://www.npmjs.com/package/@maphel/classnames)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/maphel/classnames/build.yml)](https://github.com/maphel/classnames/actions/workflows/build.yml)
-[![Coverage Status](https://img.shields.io/coverallsCoverage/github/maphel/classnames)](https://coveralls.io/github/maphel/classnames?branch=main)
-[![Dependabot Status](https://img.shields.io/github/license/maphel/classnames)]()
-
-
-> A TypeScript utility for conditionally concatenating class names.
+> The @maphel/classnames package is a utility library for TypeScript and JavaScript applications that simplifies the dynamic creation and manipulation of CSS class strings. Written in TypeScript, it allows you to conditionally concatenate class names based on a variety of data types like strings, objects, and arrays. This is particularly useful for managing UI state changes in frontend frameworks like React, Angular, and Vue.
 
 ---
 
 ## Table of Contents
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [API](#API)
+  - [Parameters](#Parameters)
+- [Examples](#Examples)
+- [Contributing](#Contributing)
+- [License](#License)
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [API](#api)
-    - [classNames(...args)](#classnamesargs)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
+
+---
+
+## Features
+Type Safety: Being written in TypeScript, it offers type safety while handling class names.
+Conditional Classes: Easily apply class names based on conditions.
+Array and Object Support: Accepts an array or object of class names, giving you flexibility in how you manage your classes.
+
+## Why @maphel/classnames?
+Working with dynamic class names often leads to cumbersome ternary or logical operations that can make the code less readable. The @maphel/classnames utility helps you create class name strings in a more expressive, readable, and error-free manner.
 
 ---
 
 ## Installation
-
 ```bash
-npm install class-names-package
+npm install @maphel/classnames
 ```
 
 ## Usage
-
-Import the utility function into your TypeScript or JavaScript file:
+Import `classNames` into your TypeScript or JavaScript file.
 ```typescript
 import { classNames } from '@maphel/classnames';
 ```
 
 ## API
 ```typescript
-classNames(...args)
+classNames(...args: ClassValue[]): string;
 ```
-Returns a concatenated string of class names based on the given arguments.
 
 ### Parameters
--  args
-
-A list of `ClassValue` or `ClassMap` values that you want to concatenate.
-`ClassValue` can be `string | undefined | null | boolean`.
-ClassMap is a `Record<string, boolean>`.
+- `args`: ClassValue[]  
+  Array of `ClassValue` elements to concatenate.
 
 ### Return Value
-A string that is a concatenated list of class names based on the given arguments.
+Returns a concatenated string of class names based on `args`.
+
+---
 
 ## Examples
-
-Here are a few examples to show how you can use `classNames`.
 ```typescript
-import { classNames } from 'class-names-package';
+import { classNames } from '@maphel/classnames';
 
-// Basic usage
-const result = classNames('class1', 'class2');  // Output: "class1 class2"
+// Basic Usage
+const basicResult = classNames('class1', 'class2');
+console.log(basicResult);  // Output: "class1 class2"
 
-// With conditions
-const isEnabled = true;
-const isHidden = false;
-
+// Conditional Classes
 const conditionalResult = classNames(
-  'base-class',
-  { 'enabled': isEnabled, 'hidden': isHidden }
-);  // Output: "base-class enabled"
+        'base',
+        { 'active': true, 'disabled': false }
+);
+console.log(conditionalResult);  // Output: "base active"
 
-// With array
-const arrayResult = classNames(['base-class', 'base-class2']]);  // Output: "base base2"
+// Array Usage
+const arrayResult = classNames(['array-class1', 'array-class2']);
+console.log(arrayResult);  // Output: "array-class1 array-class2"
+
 ```
-
+---
 ## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests.
+Refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file for contribution guidelines.
 
-## Licence
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+## License
+This project is under the MIT License. Refer to the [LICENSE.md](./LICENSE.md) file for details.
