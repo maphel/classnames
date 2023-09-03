@@ -1,0 +1,21 @@
+# Development files
+*.ts
+*.tsx
+*.test.js
+*.spec.js
+*.test.ts
+*.spec.ts
+tsconfig.json
+webpack.config.js
+__tests__/
+
+# Configurations
+.eslintrc
+.prettierrc
+.babelrc
+
+# Miscellaneous
+.gitignore
+.npmignore
+README.md
+.cache/
