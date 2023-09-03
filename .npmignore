@@ -1,5 +1,6 @@
 # Development files
 *.ts
+!*.d.ts
 *.tsx
 *.test.js
 *.spec.js
@@ -19,3 +20,11 @@ __tests__/
 .npmignore
 README.md
 .cache/
+.github/
+.yarn/
+coverage/
+.pnp.cjs
+.pnp.loader.mjs
+.yarnrc.yml
+.ready
+jest.config.js
