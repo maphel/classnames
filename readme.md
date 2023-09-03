@@ -1,11 +1,13 @@
-# `@maphel/classnames` Package
+# `@maphel/classnames`
+
 ![Classnames Package](https://img.shields.io/badge/@maphel-classnames-8A2BE2)
 ![NPM version](https://img.shields.io/npm/v/@maphel/classnames.svg)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/maphel/classnames/build.yml)
 ![Coverage Status](https://img.shields.io/coverallsCoverage/github/maphel/classnames)
 ![License](https://img.shields.io/github/license/maphel/classnames)
 
-> The @maphel/classnames package is a utility library for TypeScript and JavaScript applications that simplifies the dynamic creation and manipulation of CSS class strings. Written in TypeScript, it allows you to conditionally concatenate class names based on a variety of data types like strings, objects, and arrays. This is particularly useful for managing UI state changes in frontend frameworks like React, Angular, and Vue.
+
+> The `@maphel/classnames` package is a utility library for TypeScript and JavaScript applications that simplifies the dynamic creation and manipulation of CSS class strings. Written in TypeScript, it allows you to conditionally concatenate class names based on a variety of data types like strings, objects, and arrays. This is particularly useful for managing UI state changes in frontend frameworks like React, Angular, and Vue.
 
 ---
 
