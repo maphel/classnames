@@ -81,7 +81,7 @@ describe("classnames", () => {
     });
 
     it('evaluate all features', () => {
-      expect(classNames('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h ', ' i ', {' j': true}], ' k', 'l ', ' m ')).toBe('a b c d e f g h i j k l m');
+      expect(classNames('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ')).toBe('a b c d e f g h i j k l m');
     });
 
     it('should return empty string for no arguments', () => {
