@@ -26,11 +26,5 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Clear dist folder
-        run: rm -rf dist
-
-      - name: Build
-        run: yarn build
-
       - name: Run tests with coverage
         run: yarn test

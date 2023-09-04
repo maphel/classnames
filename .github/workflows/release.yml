@@ -49,14 +49,8 @@ jobs:
           node-version: 18
           cache: yarn
 
-      - name: Clear dist folder
-        run: rm -rf dist
-
       - name: Install dependencies
         run: yarn install --immutable
-
-      - name: Build
-        run: yarn build
 
       - name: Exclude source maps
         run: rm -rf dist/**/*.map.js
