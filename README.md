@@ -59,8 +59,8 @@ classes(...args: ClassProps[]): string;
 ```
 
 ### Parameters
-- `args`: ClassValue[]  
-  Array of `ClassValue` elements to concatenate.
+- `args`: CLassProps[]  
+  Array of `CLassProps` elements to concatenate.
 
 ### Return Value
 Returns a concatenated string of class names based on `args`.
