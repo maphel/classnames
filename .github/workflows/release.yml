@@ -16,16 +16,10 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Fetch tags
-        run: git fetch --tags
-
-      - name: Extract version from latest Git tag or use default
+      - name: Extract version from Git tag
         run: |
-          TAG_NAME=$(git tag | tail -n 1)
+          TAG_NAME=${GITHUB_REF#refs/tags/}
           VERSION=${TAG_NAME#*v}
-          if [[ -z "$VERSION" ]]; then
-            VERSION="0.0.1" # Default version
-          fi
           npm version $VERSION --no-git-tag-version
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
@@ -44,18 +38,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
         with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
+          ref: main
+          fetch-depth: 0
 
-      - name: Install Yarn 3 (Berry)
-        run: npm install -g yarn@berry
-
-      - name: Set up Yarn 3
-        run: yarn set version berry
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v2
+        with:
+          path: .yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
         run: yarn install --immutable
