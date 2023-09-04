@@ -1,6 +1,6 @@
 {
   "name": "@maphel/classnames",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "description": "A utility for generating class names",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
