@@ -1,9 +1,11 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number'
+        required: true
 
 jobs:
   update-master-to-tagged-version:
@@ -16,20 +18,20 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Extract version from Git tag
+      - name: Set Version from Workflow Input
         run: |
-          TAG_NAME=${GITHUB_REF#refs/tags/}
-          VERSION=${TAG_NAME#*v}
+          VERSION=${{ github.event.inputs.version }}
           npm version $VERSION --no-git-tag-version
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Commit and push updated package.json on main
+      - name: Commit, tag and push updated package.json on main
         run: |
           git config --local user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --local user.name "maphel"
           git add package.json
           git commit -m "Update package.json version to ${{ env.VERSION }} on main"
-          git push origin main
+          git tag "v${{ env.VERSION }}"
+          git push origin main --tags
 
   publish:
     needs: update-master-to-tagged-version
