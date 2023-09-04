@@ -18,15 +18,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Install Yarn 3 (Berry)
-        run: npm install -g yarn@berry
-
-      - name: Set up Yarn 3
-        run: yarn set version berry
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --immutable
+
+      - name: Lint
+        run: yarn lint
 
       - name: Build
         run: yarn build
