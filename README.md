@@ -1,13 +1,13 @@
-# `@maphel/classnames`
+# `@maphel/classes`
 
-![Classnames Package](https://img.shields.io/badge/@maphel-classnames-8A2BE2)
-![NPM version](https://img.shields.io/npm/v/@maphel/classnames.svg)
-![Build Status](https://img.shields.io/github/actions/workflow/status/maphel/classnames/build.yml)
-![Coverage Status](https://img.shields.io/coverallsCoverage/github/maphel/classnames)
-![License](https://img.shields.io/github/license/maphel/classnames)
+![Classnames Package](https://img.shields.io/badge/@maphel-classes-8A2BE2)
+![NPM version](https://img.shields.io/npm/v/@maphel/classes.svg)
+![Build Status](https://img.shields.io/github/actions/workflow/status/maphel/classes/build.yml)
+![Coverage Status](https://img.shields.io/coverallsCoverage/github/maphel/classes)
+![License](https://img.shields.io/github/license/maphel/classes)
 
 
-> The `@maphel/classnames` package is a TypeScript utility for easily managing CSS class names in your JavaScript or TypeScript application. Ideal for frontend frameworks like React, Angular, and Vue, it lets you dynamically generate className strings using conditions. Merge multiple class names, use conditionals, and manage UI state effortlessly.
+> The `@maphel/classes` package is a TypeScript utility for easily managing CSS class names in your JavaScript or TypeScript application. Ideal for frontend frameworks like React, Angular, and Vue, it lets you dynamically generate className strings using conditions. Merge multiple class names, use conditionals, and manage UI state effortlessly.
 
 ---
 
@@ -28,27 +28,34 @@ Type Safety: Being written in TypeScript, it offers type safety while handling c
 Conditional Classes: Easily apply class names based on conditions.
 Array and Object Support: Accepts an array or object of class names, giving you flexibility in how you manage your classes.
 
-## Why @maphel/classnames?
-Working with dynamic class names often leads to cumbersome ternary or logical operations that can make the code less readable. The @maphel/classnames utility helps you create class name strings in a more expressive, readable, and error-free manner.
+## Why @maphel/classes?
+Working with dynamic class names often leads to cumbersome ternary or logical operations that can make the code less readable. The @maphel/classes utility helps you create class name strings in a more expressive, readable, and error-free manner.
 
 ---
 
 ## Installation
 ```bash
-npm install @maphel/classnames
+npm install @maphel/classes
+
+yarn add @maphel/classes
 ```
 
 ## Usage
-Import `classNames` into your TypeScript or JavaScript file.
+Import `@maphel/classes` into your TypeScript or JavaScript file.
 ```typescript
-import { cn } from '@maphel/classnames';
-import { classNames } from '@maphel/classnames';
+import { c } from '@maphel/classes';
+import classes from '@maphel/classes';
+
+var c = require('@maphel/classes').c;
+var classes = require('@maphel/classes').default;
 ```
 
 ## API
 ```typescript
-cn(...args: ClassValue[]): string;
-classNames(...args: ClassValue[]): string;
+type ClassProps = string | boolean | { [key: string]: string | boolean } | ClassProps[];
+
+c(...args: ClassProps[]): string;
+classes(...args: ClassProps[]): string;
 ```
 
 ### Parameters
@@ -62,22 +69,22 @@ Returns a concatenated string of class names based on `args`.
 
 ## Examples
 ```typescript
-import { cn } from '@maphel/classnames';
+import { c } from '@maphel/classes';
 
 // Basic Usage
-const basicResult = cn('class1', 'class2');
+const basicResult = c('class1', 'class2');
 console.log(basicResult);  // Output: "class1 class2"
 
 // Conditional Usage
-const conditionalResult = cn('base', { 'active': true, 'disabled': false });
+const conditionalResult = c('base', { 'active': true, 'disabled': false });
 console.log(conditionalResult);  // Output: "base active"
 
 // Array Usage
-const arrayResult = cn(['array-class1', 'array-class2']);
+const arrayResult = c(['array-class1', 'array-class2']);
 console.log(arrayResult);  // Output: "array-class1 array-class2"
 
 // Exessive Usage
-const exessiveResult = cn('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ');
+const exessiveResult = c('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ');
 console.log(exessiveResult);  // Output: "a b c d e f g h i j k l m"
 ```
 ---

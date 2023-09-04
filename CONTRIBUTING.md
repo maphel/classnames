@@ -23,10 +23,10 @@ Thank you for considering contributing to `@maphel/classnames`. We appreciate yo
 
 1. **Fork the Repository**
 
-   Fork the `@maphel/classnames` repository on GitHub and clone your fork locally.
+   Fork the `@maphel/classes` repository on GitHub and clone your fork locally.
 
     ```sh
-    git clone https://github.com/[YOUR_USERNAME]/classnames.git
+    git clone https://github.com/maphel/classes.git
     ```
 
 2. **Install Dependencies**
@@ -34,8 +34,8 @@ Thank you for considering contributing to `@maphel/classnames`. We appreciate yo
    Navigate to the repository folder and install all necessary packages:
 
     ```sh
-    cd classnames
-    npm install
+    cd classes
+    yarn install
     ```
 
 3. **Branching**
@@ -54,8 +54,9 @@ Thank you for considering contributing to `@maphel/classnames`. We appreciate yo
 - Make sure your code lints and all tests pass. Run:
 
     ```sh
-    npm run lint
-    npm test
+    yarn lint
+    yarn test
+    yarn prettier
     ```
 
 - Keep your code as clean and straightforward as possible.
@@ -97,5 +98,5 @@ Thank you for considering contributing to `@maphel/classnames`. We appreciate yo
 
 ## License
 
-By contributing to `@maphel/classnames`, you agree that your contributions will be licensed under its MIT License.
+By contributing to `@maphel/classes`, you agree that your contributions will be licensed under its MIT License.
 
