@@ -41,11 +41,13 @@ npm install @maphel/classnames
 ## Usage
 Import `classNames` into your TypeScript or JavaScript file.
 ```typescript
+import { cn } from '@maphel/classnames';
 import { classNames } from '@maphel/classnames';
 ```
 
 ## API
 ```typescript
+cn(...args: ClassValue[]): string;
 classNames(...args: ClassValue[]): string;
 ```
 
@@ -60,25 +62,22 @@ Returns a concatenated string of class names based on `args`.
 
 ## Examples
 ```typescript
-import { classNames } from '@maphel/classnames';
+import { cn } from '@maphel/classnames';
 
 // Basic Usage
-const basicResult = classNames('class1', 'class2');
+const basicResult = cn('class1', 'class2');
 console.log(basicResult);  // Output: "class1 class2"
 
 // Conditional Usage
-const conditionalResult = classNames(
-        'base',
-        { 'active': true, 'disabled': false }
-);
+const conditionalResult = cn('base', { 'active': true, 'disabled': false });
 console.log(conditionalResult);  // Output: "base active"
 
 // Array Usage
-const arrayResult = classNames(['array-class1', 'array-class2']);
+const arrayResult = cn(['array-class1', 'array-class2']);
 console.log(arrayResult);  // Output: "array-class1 array-class2"
 
 // Exessive Usage
-const exessiveResult = classNames('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ');
+const exessiveResult = cn('a', ['b', 'c'], {d: true}, ['e', {f: true}, ' g', 'h '], [' i ', [{' j': true}]], ' k', 'l ', ' m ');
 console.log(exessiveResult);  // Output: "a b c d e f g h i j k l m"
 ```
 ---

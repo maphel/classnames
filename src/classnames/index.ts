@@ -2,7 +2,9 @@ export type ClassValue = string | boolean | ClassValueArray | ClassMap;
 export type ClassValueArray = ClassValue[];
 export type ClassMap = { [key: string]: string | boolean };
 
-export function classNames(...args: ClassValue[]): string {
+export const classNames = cn;
+
+export function cn(...args: ClassValue[]): string {
   const classes: string[] = [];
 
   for (let i = 0; i < args.length; i++) {
