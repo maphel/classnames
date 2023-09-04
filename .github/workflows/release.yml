@@ -55,7 +55,11 @@ jobs:
       - name: Exclude source maps
         run: rm -rf dist/**/*.map.js
 
-      - name: Publish to NPM
-        run: npm publish --access public
+      - name: Configure .npmrc for Auth
+        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Publish to NPM
+        run: npm publish --access public
+
