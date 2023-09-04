@@ -40,7 +40,7 @@ describe("c", () => {
     ).toBe("class1 class2 class4")
   })
 
-  it('should ignore object arguments with non-boolean values except strings like "true" or "false" or "1" or "2"', () => {
+  it("should ignore object arguments with non-boolean values except strings like 'true' or 'false' or '1' or '2''", () => {
     expect(c({ class1: "true", class2: 123, class3: "1" } as any)).toBe("class1 class3")
   })
 
