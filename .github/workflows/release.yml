@@ -27,22 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --immutable
-
-      - name: Extract version from latest Git tag
-        run: echo "Updating package.json version to latest tag"
-
-      - name: Install jq
-        run: sudo apt-get install jq
-
-      - name: Use version and add to package.json
-        run: |
-          TAG_NAME=$(git describe --tags $(git rev-list --tags --max-count=1))
-          VERSION=${TAG_NAME#*v.}
-          jq ".version = \"$VERSION\"" package.json > package.temp.json
-          mv package.temp.json package.json
-        env:
-          VERSION: $VERSION
-
+        
       - name: Build
         run: yarn build
 
@@ -62,15 +47,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-
-      - name: Update package.json on main
+      
+      - name: Extract version from latest Git tag
         run: |
-          VERSION=$(jq -r '.version' package.json)
-          echo "Updating package.json version on master to $VERSION"
-          jq ".version = \"$VERSION\"" package.json > package.temp.json
-          mv package.temp.json package.json
-
-      - name: Commit and push updated package.json on master
+          TAG_NAME=$(git describe --tags $(git rev-list --tags --max-count=1))
+          VERSION=${TAG_NAME#*v}
+          npm version $VERSION --no-git-tag-version
+      
+      - name: Commit and push updated package.json on main
         run: |
           git config --local user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --local user.name "maphel"
