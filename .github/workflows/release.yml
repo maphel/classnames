@@ -16,6 +16,9 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Fetch tags
+        run: git fetch --tags
+
       - name: Extract version from latest Git tag or use default
         run: |
           TAG_NAME=$(git tag | tail -n 1)
